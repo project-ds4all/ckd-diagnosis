@@ -1,0 +1,9 @@
+.ipynb_checkpoints/
+__pycache__/
+.vscode/
+ckd_model.pkl
+venv/
+.idea
+env.list
+urban_parks.geojson
+blocks.geojson
