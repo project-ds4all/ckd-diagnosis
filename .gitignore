@@ -7,3 +7,4 @@ venv/
 env.list
 urban_parks.geojson
 blocks.geojson
+.env
