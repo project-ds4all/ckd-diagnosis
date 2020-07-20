@@ -1,13 +1,14 @@
 FROM python:3.7
 
-LABEL maintainer = 'Juan Sebastian Hernandez <juans.hernandez@rappi.com>'
+ENV PORT=80
+LABEL maintainer = 'Juan Sebastian Hernandez <juanher94>'
 
-COPY . project/
-WORKDIR project/
+COPY . /project/
+WORKDIR /project/
 
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-EXPOSE 8000
+EXPOSE ${PORT}
 
-CMD python server.py
+CMD gunicorn --bind 0.0.0.0:${PORT} wsgi:app
