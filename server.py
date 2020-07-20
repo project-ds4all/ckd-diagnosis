@@ -20,14 +20,6 @@ from services.ckd_analyzer import CKDAnalyzer
 from services.json_formatter import JsonFormatter
 from utils.api_utils import request_logger, failure
 
-# APM tracer
-tracer = create_tracer(access_token=settings.SIGNALFX_ACCESS_TOKEN,
-                       config={
-                           'service_name': settings.SIGNALFX_SERVICE_NAME,
-                           'jaeger_endpoint': settings.SIGNALFX_ENDPOINT_URL
-                       })
-auto_instrument(tracer)
-
 # APP init config
 app = Flask(__name__)
 app.config["DEBUG"] = settings.DEBUG
