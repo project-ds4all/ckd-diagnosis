@@ -27,6 +27,8 @@ app.config["SQLALCHEMY_DATABASE_URI"] = connection_uri
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["PROPAGATE_EXCEPTIONS"] = settings.PROPAGATE_EXCEPTIONS
 app.config['SQLALCHEMY_POOL_RECYCLE'] = 120
+db.init_app(app)
+ma.init_app(app)
 
 # Logs
 logging_mode = logging.INFO
@@ -116,6 +118,4 @@ def classify_patient():
 
 if __name__ == '__main__':
     logging.info('Server started.')
-    db.init_app(app)
-    ma.init_app(app)
     app.run(host='0.0.0.0', port=8000)
