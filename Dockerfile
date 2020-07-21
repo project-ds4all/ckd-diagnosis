@@ -11,4 +11,4 @@ RUN pip install -r requirements.txt
 
 EXPOSE ${PORT}
 
-CMD gunicorn --bind 0.0.0.0:${PORT} wsgi:app
+CMD gunicorn --bind 0.0.0.0:${PORT} wsgi:app --timeout 120

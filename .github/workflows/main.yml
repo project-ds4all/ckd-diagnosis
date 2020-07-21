@@ -9,10 +9,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - run: git fetch --all --unshallow
+      - uses: actions/checkout@v2
+      - run: git fetch --all
       - uses: akhileshns/heroku-deploy@master
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "ckd-diagnosis"
           heroku_email: "js.hernandez0894@gmail.com"
+          usedocker: true
