@@ -9,6 +9,8 @@ class PatientLog(db.Model):
 
     id = db.Column(BigInteger, Sequence('id_seq', metadata=db.metadata), primary_key=True)
     address = db.Column(String(length=200), nullable=True)
+    birth_date = db.Column(String(length=20))
+    gender = db.Column(String(length=10))
     age = db.Column(Integer(), nullable=True)
     diabetes = db.Column(Integer(), nullable=True)
     pain_in_joint = db.Column(Integer(), nullable=True)
@@ -16,6 +18,7 @@ class PatientLog(db.Model):
     hypertension = db.Column(Integer(), nullable=True)
     lat = db.Column(Float())
     lng = db.Column(Float())
+    strata = db.Column(Integer())
     park_id = db.Column(Integer(), nullable=True)
     park_type = db.Column(String(length=200), nullable=True)
     park_name = db.Column(String(length=200), nullable=True)

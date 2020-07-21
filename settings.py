@@ -29,6 +29,8 @@ S3_BUCKET_NAME = S3_CONNECTION_STR.split('.')[0]
 # S3 PREFIX AND PATH
 PREFIX_DATA = f'data'
 PATTERN_PARKS = '/urban_parks.geojson'
+PATTERN_BLOCKS = '/blocks.geojson'
+PATTERN_CKD = '/ckd_clean_data.csv'
 
 PREFIX_MODEL = f'models'
 PATTERN_MODEL = '/\\w+.pkl'
