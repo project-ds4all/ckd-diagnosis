@@ -8,3 +8,4 @@ env.list
 urban_parks.geojson
 blocks.geojson
 .env
+ckd_clean_data.csv

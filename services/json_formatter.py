@@ -10,6 +10,8 @@ class JsonFormatter:
     def db_conversion(patient_request: PatientRequest):
         patient_log = json.dumps({
             "address": patient_request.address,
+            "birth_date": str(patient_request.birth_date),
+            "gender": patient_request.gender,
             "age": patient_request.age,
             "diabetes": patient_request.diabetes,
             "pain_in_joint": patient_request.pain_in_joint,
@@ -17,6 +19,7 @@ class JsonFormatter:
             "hypertension": patient_request.hypertension,
             "lat": patient_request.lat,
             "lng": patient_request.lng,
+            "strata": patient_request.strata,
             "park_id": patient_request.park_id,
             "park_type": patient_request.park_type,
             "park_name": patient_request.park_name,
@@ -27,12 +30,6 @@ class JsonFormatter:
     @staticmethod
     def response_conversion(patient_request: PatientRequest):
         response = json.dumps({
-            "address": patient_request.address,
-            "age": patient_request.age,
-            "diabetes": patient_request.diabetes,
-            "pain_in_joint": patient_request.pain_in_joint,
-            "urinary_infection": patient_request.urinary_infection,
-            "hypertension": patient_request.hypertension,
             "lat": patient_request.lat,
             "lng": patient_request.lng,
             "park_id": patient_request.park_id,

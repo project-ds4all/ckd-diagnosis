@@ -1,11 +1,16 @@
+from dateutil.relativedelta import relativedelta
+from datetime import datetime
+
+
 class PatientRequest:
     def __init__(self, **kwargs):
         self.address = kwargs['address']
-        self.age = kwargs['age']
+        self.birth_date = kwargs['birth_date']
         self.diabetes = kwargs['diabetes']
         self.pain_in_joint = kwargs['pain_in_joint']
         self.urinary_infection = kwargs['urinary_infection']
         self.hypertension = kwargs['hypertension']
+        self.gender = kwargs['gender']
         self.probability = None
         self.lat = None
         self.lng = None
@@ -13,3 +18,8 @@ class PatientRequest:
         self.park_type = None
         self.park_name = None
         self.diet = None
+        self.strata = None
+        self.__assign_age()
+
+    def __assign_age(self):
+        self.age = relativedelta(datetime.today(), self.birth_date).years
