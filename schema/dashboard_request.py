@@ -11,6 +11,7 @@ class DashboardRequestSchema(Schema):
     values = fields.Str(required=True)
     indexes = fields.Str(required=True)
     group = fields.Str(required=True)
+    columns = fields.Str(required=True)
 
     @post_load()
     def make_alarm(self, data: dict, **kwargs) -> DashboardRequest:
