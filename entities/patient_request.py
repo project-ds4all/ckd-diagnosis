@@ -17,7 +17,14 @@ class PatientRequest:
         self.park_id = None
         self.park_type = None
         self.park_name = None
-        self.diet = None
+        self.sugars = None
+        self.fruits = None
+        self.vegetables = None
+        self.protein = None
+        self.fats = None
+        self.meal = None
+        self.dairy = None
+        self.alcohol = None
         self.strata = None
         self.__assign_age()
 
