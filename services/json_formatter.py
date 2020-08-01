@@ -39,10 +39,7 @@ class JsonFormatter:
             "protein": patient_request.protein,
             "meals": patient_request.meal,
             "alcohol": patient_request.alcohol,
-            "dairy": patient_request.dairy,
             "fats": patient_request.fats,
-            "sugars": patient_request.sugars,
-            "vegetables": patient_request.vegetables,
-            "fruits": patient_request.fruits
+            "sugars": patient_request.sugars
         }, ensure_ascii=False)
         return response
