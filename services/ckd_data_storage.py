@@ -39,16 +39,31 @@ class CKDDataStorage:
         years = dashboard.years
         values = dashboard.values
         indexes = dashboard.indexes
+        columns = dashboard.columns
         group = dashboard.group
         filtered_table = self.__dataframe[(self.__dataframe['Sexo'].isin(genders)) &
                                           (self.__dataframe['Año'].isin(years))]
+        if columns is None:
+            names = indexes + values
+        else:
+            names = indexes + [str(i) for i in filtered_table[columns[0]].unique()]
         if group == 'sum':
             output_table = pd.pivot_table(filtered_table, values=values, index=indexes,
-                                          aggfunc=np.sum).reset_index()
+                                          aggfunc=np.sum, columns=columns).reset_index()
         else:
-            indexes_temporal = indexes + ['Año']
-            output_temporal = pd.pivot_table(filtered_table, values=values, index=indexes_temporal,
-                                             aggfunc=np.sum).reset_index()
-            output_table = pd.pivot_table(output_temporal, values=values, index=indexes).reset_index()
-
+            if columns is not None:
+                indexes_temporal = indexes + columns
+            else:
+                indexes_temporal = indexes
+            if "Año" not in indexes:
+                indexes_temporal = indexes_temporal + ['Año']
+                output_temporal = pd.pivot_table(filtered_table, values=values, index=indexes_temporal,
+                                                 aggfunc=np.sum).reset_index()
+                output_table = pd.pivot_table(output_temporal, values=values,
+                                              index=indexes, columns=columns).reset_index()
+            else:
+                output_table = pd.pivot_table(filtered_table, values=values, index=indexes,
+                                              columns=columns).reset_index()
+        output_table.columns = names
+        output_table.fillna(0, inplace=True)
         return output_table

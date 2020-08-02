@@ -24,7 +24,7 @@ class JsonFormatter:
             "park_type": patient_request.park_type,
             "park_name": patient_request.park_name,
             "probability": patient_request.probability
-        })
+        }, ensure_ascii=False)
         return patient_log
 
     @staticmethod
@@ -35,6 +35,11 @@ class JsonFormatter:
             "park_id": patient_request.park_id,
             "park_type": patient_request.park_type,
             "park_name": patient_request.park_name,
-            "probability": patient_request.probability
-        })
+            "probability": round(patient_request.probability*100, 1),
+            "protein": patient_request.protein,
+            "meals": patient_request.meal,
+            "alcohol": patient_request.alcohol,
+            "fats": patient_request.fats,
+            "sugars": patient_request.sugars
+        }, ensure_ascii=False)
         return response

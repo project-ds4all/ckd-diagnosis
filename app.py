@@ -1,9 +1,9 @@
 import boto3
 import botocore
-import requests
 import logging
 import json
-from flask import Flask, request, Response, jsonify
+from flask import Flask, request, Response
+from flask_cors import CORS
 import datetime as dt
 from signalfx_tracing import auto_instrument, create_tracer, trace
 
@@ -23,8 +23,10 @@ from services.ckd_analyzer import CKDAnalyzer
 from services.json_formatter import JsonFormatter
 from utils.api_utils import request_logger, failure
 
+
 # APP init config
 app = Flask(__name__)
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 app.config["DEBUG"] = settings.DEBUG
 app.config["SQLALCHEMY_DATABASE_URI"] = connection_uri
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
@@ -123,7 +125,7 @@ def info_organizer():
     dashboard_request = dashboard_schema.load(json_input)
     pivot_table = ckd_data_storage.build_pivot(dashboard_request)
 
-    return pivot_table.to_json(force_ascii=False)
+    return json.dumps(pivot_table.to_dict(orient='list'), ensure_ascii=False)
 
 
 # Patient classification endpoint
