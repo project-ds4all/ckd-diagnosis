@@ -5,3 +5,11 @@ class DashboardRequest:
         self.years = kwargs['years'].split(",")
         self.values = kwargs['values'].split(",")
         self.indexes = kwargs['indexes'].split(",")
+        self.__column = kwargs['columns'].split(",")
+        self.__assign_columns()
+
+    def __assign_columns(self):
+        if self.__column[0] == "":
+            self.columns = None
+        else:
+            self.columns = self.__column

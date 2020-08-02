@@ -29,10 +29,22 @@ class CKDAnalyzer:
     @staticmethod
     def diet_assigner(patient: PatientRequest):
         logging.info(f"ckd-diagnosis-logger: assigning diet based on probability")
-        if patient.probability > 0.8:
-            patient.diet = "papa con arroz"
-        elif patient.probability > 0.5:
-            patient.diet = "papa con arroz"
+        if patient.probability > 0.6:
+            patient.meal = "Evitar alimentos fritos, en especial papas y alimentos procesados como galletas. Adicionalmente, procure consumir alimentos integrales."
+            patient.sugars = "Evitar el consumo de postres, gaseosas y jugos."
+            patient.fats = "Evitar el consumo de fritos (alitas, chicharrón, costillas) y embutidos. En su lugar consumir alimentos cocidos o al horno y grasas saludables como el aguacate."
+            patient.protein = "Evitar el consumo de atún, embutidos y congelados, adicionalmente cuidar el tamaño de las porciones consumidas. Procurar consumir huevo, carnes como pescado o pechuga de pollo y proteinas vegetales como el tofu y leguminosas."
+            patient.alcohol = "Evitar el consumo de cualquier tipo de bebidas alcohólicas."
+        elif patient.probability > 0.4:
+            patient.meal = "Evitar alimentos fritos, en especial papas y alimentos procesados como galletas."
+            patient.sugars = "Evitar el consumo de postres y gaseosas."
+            patient.fats = "Evitar el consumo de fritos y embutidos."
+            patient.protein = "Evitar el consumo de atún, embutidos y congelados, consumir una porción adecuada a sus necesidades físicas. Procurar consumir huevo, carnes como pescado o pechuga de pollo y proteinas vegetales como el tofu y leguminosas."
+            patient.alcohol = "Evitar el consumo de cualquier tipo de bebidas alcohólicas."
         else:
-            patient.diet = "papa con arroz"
+            patient.meal = "Evitar excesos en alimentos procesados como galletas."
+            patient.sugars = "Evitar excesos en el consumo de postres, dulces y gaseosas"
+            patient.fats = "Evitar el consumo de fritos y embutidos."
+            patient.protein = "Procurar consumir huevo, carnes no procesadas y proteinas vegetales como el tofu y leguminosas."
+            patient.alcohol = "Evitar un consumo de bebidas alcohólicas."
 
