@@ -2,7 +2,7 @@ import boto3
 import botocore
 import logging
 import json
-from flask import Flask, request, Response
+from flask import Flask, request, Response, jsonify
 from flask_cors import CORS
 import datetime as dt
 from signalfx_tracing import auto_instrument, create_tracer, trace
