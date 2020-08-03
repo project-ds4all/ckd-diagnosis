@@ -29,3 +29,6 @@ Service that formats the answer into a json file to return it to the frontend.
 
 #### ckd_analyzer ####
 Service that returns a diet based on the user's propensity to CKD.
+
+## app.py ##
+The app.py file contains the main code where all the previously mentioned services are consumed for both endpoint: the one in charge of sending pivot tables to the dashboard and the one that delivers the prediction to the diagnosis tab.
