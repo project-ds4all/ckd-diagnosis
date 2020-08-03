@@ -33,7 +33,10 @@ Service that returns a diet based on the user's propensity to CKD.
 ## app.py ##
 The app.py file contains the main code where all the previously mentioned services are consumed for both endpoint: the one in charge of sending pivot tables to the dashboard and the one that delivers the prediction to the diagnosis tab.
 
-## EDA and Data Wrangling
+## EDA and Data Wrangling ##
 This folder includes a jupyter notebook with the EDA and the plotly graphs that inspired the ones included in the dashboard. Also there is a python file where the data wrangling was done, using the csv of the census and the geojsons of the other geospatial data. This python file also includes the clustering that lead to the different layers of the map.
+
+## Model training ##
+In the folder model_notebook can be found a jupyter notebook that shows the development of the neural network employed by the backend to predict the propensity to develop CKD.
 
 
