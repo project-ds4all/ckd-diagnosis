@@ -46,5 +46,5 @@ class CKDAnalyzer:
             patient.sugars = "Evitar excesos en el consumo de postres, dulces y gaseosas"
             patient.fats = "Evitar el consumo de fritos y embutidos."
             patient.protein = "Procurar consumir huevo, carnes no procesadas y proteinas vegetales como el tofu y leguminosas."
-            patient.alcohol = "Evitar un consumo de bebidas alcohólicas."
+            patient.alcohol = "Evitar un consumo excesivo de bebidas alcohólicas."
 
